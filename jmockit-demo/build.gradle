@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+}
+
+test {
+    jvmArgs "-javaagent:${classpath.find { it.name.contains("jmockit") }.absolutePath}"
+}

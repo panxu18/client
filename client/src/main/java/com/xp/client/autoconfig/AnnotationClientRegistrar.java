@@ -32,6 +32,7 @@ public class AnnotationClientRegistrar implements ImportBeanDefinitionRegistrar 
         ReactClientDefinitionScanner scanner = new ReactClientDefinitionScanner(registry);
 
         scanner.scan(packages.toArray(new String[]{}));
+        
     }
 
     private Set<String> getPackages(AnnotationMetadata metadata) {

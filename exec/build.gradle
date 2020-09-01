@@ -1,0 +1,7 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation'org.apache.commons:commons-exec:1.3'
+}

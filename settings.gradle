@@ -7,4 +7,10 @@
  * in the user manual at https://docs.gradle.org/6.6/userguide/multi_project_builds.html
  */
 
-rootProject.name = 'client'
+rootProject.name = 'sample'
+include 'exec'
+include 'client'
+include 'auth'
+include 'code-review'
+include 'jmockit-demo'
+

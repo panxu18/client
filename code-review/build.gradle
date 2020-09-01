@@ -1,0 +1,12 @@
+plugins {
+    id 'java'
+}
+
+group 'com.xp.cloud'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+
