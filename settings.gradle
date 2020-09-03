@@ -13,4 +13,5 @@ include 'client'
 include 'auth'
 include 'code-review'
 include 'jmockit-demo'
+include 'netty'
 
