@@ -1,5 +1,6 @@
-package helloword;
+package channelstatus;
 
+import helloworld.HelloHttpHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;

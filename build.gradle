@@ -32,7 +32,7 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
         testCompileOnly 'org.projectlombok:lombok:1.18.12'
-        testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+        testAnnotationProcessor 'org.projectlombok:lomebok:1.18.12'
         testImplementation 'org.jmockit:jmockit:1.49'
         testCompile 'junit:junit:4.12'
 
