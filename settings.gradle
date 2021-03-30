@@ -10,8 +10,7 @@
 rootProject.name = 'sample'
 include 'exec'
 include 'client'
-include 'auth'
-include 'code-review'
 include 'jmockit-demo'
 include 'netty'
+include 'kafka-demo'
 

@@ -3,6 +3,9 @@ plugins {
 }
 
 dependencies {
+    testCompileOnly 'org.projectlombok:lombok:1.18.4'
+    testAnnotationProcessor 'org.projectlombok:lomebok:1.18.4'
+    testImplementation 'org.jmockit:jmockit:1.49'
 }
 
 test {
