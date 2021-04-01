@@ -1,4 +1,4 @@
-package kafka.service;
+package com.xp.demo.kafka.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,24 +11,24 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 @Slf4j
 @Service
 public class ProducerService {
-    private final KafkaTemplate<Integer, String> kafkaTemplate;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     @Autowired
-    public ProducerService(KafkaTemplate<Integer, String> kafkaTemplate) {
+    public ProducerService(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendMessage(String topic, String data) {
+    public void sendMessage(String topic, String key, String data) {
         log.info("kafka sendMessage start");
-        ListenableFuture<SendResult<Integer, String>> future = kafkaTemplate.send(topic, data);
-        future.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {
+        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, key, data);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
             @Override
             public void onFailure(Throwable ex) {
                 log.error("kafka sendMessage error", ex);
             }
 
             @Override
-            public void onSuccess(SendResult<Integer, String> result) {
+            public void onSuccess(SendResult<String, String> result) {
                 log.info("kafka sendMessage success");
             }
         });

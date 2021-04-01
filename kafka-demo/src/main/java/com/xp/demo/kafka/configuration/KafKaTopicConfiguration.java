@@ -1,5 +1,6 @@
-package kafka.configuration;
+package com.xp.demo.kafka.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,19 +8,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(KafkaTopicProperties.class)
 public class KafKaTopicConfiguration {
-    private final KafkaTopicProperties properties;
-
-    public KafKaTopicConfiguration(KafkaTopicProperties properties) {
-        this.properties = properties;
-    }
+    /**
+     * 注入自定义的topic配置
+     */
+    @Autowired
+    private KafkaTopicProperties topicProperties;
 
     @Bean
     public String[] kafkaTopicName() {
-        return properties.getTopicName();
+        return topicProperties.getTopicName();
     }
 
     @Bean
     public String topicGroupId() {
-        return properties.getGroupId();
+        return topicProperties.getGroupId();
     }
 }

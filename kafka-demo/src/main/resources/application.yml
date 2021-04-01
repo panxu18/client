@@ -1,4 +1,5 @@
 spring:
+  # kafka配置文件，对应的配置类为org.springframework.boot.autoconfigure.kafka.KafkaProperties
   kafka:
     bootstrap-servers:
       - localhost:9092
@@ -6,12 +7,23 @@ spring:
       batch-size: 1000
       buffer-memory: 1000000
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # 使用json序列化
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        # 自定义分区器
+        partitioner.class: com.xp.demo.kafka.configuration.TestPartitioner
+        # 自定义拦截器,多个拦截器使用,隔开
+        interceptor.classes: com.xp.demo.kafka.configuration.CustomProducerInterceptor
     consumer:
+      # 自动提交消费offset
       enable-auto-commit: false
       auto-commit-interval: 100ms
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # 定义受信任的反序列化包
+      properties:
+        spring.json.trusted.packages: com.xp.demo.kafka.model
 
 kafka:
   topic:

@@ -8,9 +8,5 @@
  */
 
 rootProject.name = 'sample'
-include 'exec'
-include 'client'
-include 'jmockit-demo'
-include 'netty'
-include 'kafka-demo'
+include 'exec', 'client', 'jmockit-demo' ,'netty','kafka-demo'
 
